@@ -1,33 +1,55 @@
-# Reel Monster Level 2 requirements
 
-## Source requirements from Week 2
+### `requirements.md`
 
-- Install as a real Android app.
-- Show a cute monster bubble over Instagram and YouTube.
-- Show a reel counter on the bubble.
-- Offer Level 1 manual and Level 2 automatic counting.
-- Grow the monster and show funny lines as the count rises.
-- Show today's count, time lost, and the last seven days.
-- Keep the count after phone restart.
-- In Level 2, count more than 20 reels with an error of no more than two.
-- Work without internet and without login.
+```markdown
+# Reel Monster — Requirements
 
-## Local implementation decisions
+## Purpose
 
-- Kotlin Android app, built with the command-line Android SDK and Gradle.
-- No INTERNET permission. Counts and history stay on this phone.
-- Start with the simple counter and installable app shell; add the overlay next.
-- Use an explicit, user-started screen-capture session for automatic detection. Process frames on-device and do not save or upload them.
-- Keep Level 1 as a test mode and fallback while Level 2 detection is being calibrated.
-- Define “time lost” as tracked foreground time in Instagram and YouTube during a tracking session. This is a product interpretation because the PDF doesn't define its calculation.
+Help users notice their short-video scrolling habits by counting reels and tracking time spent in supported apps.
 
-## Acceptance checks
+## Features
 
-1. Install and launch on a real Android phone.
-2. Grant overlay access and confirm the bubble appears over both target apps.
-3. Verify the bubble count and local dashboard update.
-4. Restart the phone and confirm saved counts remain.
-5. Disable internet and verify the app's local features continue working.
-6. Manually record a sequence of at least 21 reels in each target app; automatic total must differ by at most two per test sequence.
+### Level 1: Manual counting
 
-The Level 2 detector is not complete until the last check passes on the user's phone.
+- Let the user select manual mode.
+- Let the user tap a control to add one reel to today’s count.
+- Show the updated count on the dashboard.
+
+### Level 2: Automatic tracking
+
+- Let the user request automatic tracking.
+- Explain Android permissions before they are needed.
+- Track only supported short-video apps while they are in the foreground.
+- Show a draggable floating counter while tracking is active.
+- Allow the user to stop tracking.
+
+### Dashboard
+
+- Show today’s reel count.
+- Show tracked time for today.
+- Show counts for the previous seven days.
+- Display the supplied monster artwork and app icon.
+
+### Local data
+
+- Store counts and tracked time on the device.
+- Keep stored data available after the app closes and reopens.
+- Do not upload screen frames or usage information.
+
+## Interaction notes
+
+- Manual mode must remain usable without screen-capture permission.
+- Automatic tracking must only run after the user grants Android’s requested permissions.
+- Make the active tracking state and stop action easy to find.
+
+## Acceptance checklist
+
+- [ ] The user can manually add a reel.
+- [ ] The dashboard updates after a manual count.
+- [ ] The app displays today’s tracked time and seven-day history.
+- [ ] The user can start and stop automatic tracking.
+- [ ] The floating counter appears during an automatic tracking session and can be moved.
+- [ ] The app only tracks supported apps while they are in the foreground.
+- [ ] Counts remain after the app is closed and reopened.
+- [ ] The app works without an internet connection.
