@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Reel Monster
 
 Native Android project for the Week 2 Reel Monster assignment. It includes the offline app shell, Level 1 manual counter, and an early Level 2 prototype with Android screen-capture consent, a local foreground service, a draggable bubble, usage-based app filtering, tracked time, and a vertical-swipe transition detector. The detector has not yet been tuned or validated against the PDF's 20-reel accuracy target.
@@ -45,3 +46,6 @@ Native Android project for the Week 2 Reel Monster assignment. It includes the o
 See [requirements.md](requirements.md) for the source requirements and acceptance checks, and [prompts.md](prompts.md) for the staged AI workflow.
 
 The `.tools` folder is ignored by Git and holds the verified Android CLI download and extraction; it is not part of the app source. A copy of the CLI is also installed at `%LOCALAPPDATA%\Android\Sdk\cmdline-tools\latest`.
+=======
+
+>>>>>>> fd2d4c6e47eabd51fa852033c816eaae2de2212a
